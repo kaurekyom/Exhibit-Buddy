@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 1: Interview Engine and Exhibit Idea Library - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="../docs/index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../docs/../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-1-interview-engine-and-exhibit-idea-library">Stage 1:
+Interview Engine and Exhibit Idea Library</h1>
+<p>Paste the master prompt (00-master-prompt.md) first, then this stage
+prompt. Run Stage 1 completely before moving on.</p>
+<pre><code>Stage 1 of 4. Build ONLY the interview engine and the exhibit idea library.
+Do not build the guide renderer, animation or hosting steps yet.
+
+DELIVER
+1. A single index.html with:
+   - A friendly start screen (&quot;Exhibit Buddy: plan your science exhibit&quot;).
+   - The adaptive interview (max 5 questions, one at a time, big buttons
+     plus an optional text box) and an optional &quot;class or age&quot; field.
+   - A &quot;Here is what I understood&quot; summary screen with Confirm / Change.
+   - A safety screen that refuses unsafe ideas (no way to continue) and
+     shows cautions for risky ones (lasers, nuclear, mains, advanced topics).
+   - A screen for ideas that are not in the library: say so plainly and
+     offer Claude-assisted mode first.
+2. A JavaScript exhibit idea library (a JS object inside index.html) with at
+   least 24 ideas across school science: motion and force, gravity and
+   buoyancy, work and energy, sound, light and mirrors, electricity with
+   batteries only, matter and mixtures, chemical reactions, atoms, cells and
+   tissues, the human body (for example the digestive system and breathing),
+   plants, animals and health, earth and space, natural resources and food.
+   For each idea store: id, title, topic area, the science concept, working
+   or static model, difficulty (easy/medium/hard), time in hours, main
+   materials, safety level, and keywords for matching my answers.
+   Do NOT claim an idea matches a particular syllabus or textbook chapter.
+3. The decision logic: how my answers are matched to ideas, how the engine
+   decides it has enough information, and what it does when nothing matches
+   or only related ideas match (offer Claude-assisted mode first and show the
+   student&#39;s own words).
+4. Claude-assisted mode: the app writes a ready-made prompt (idea, class or
+   age, cautions, instructions). A button opens https://claude.ai/new?q=&lt;the
+   prompt, URL-encoded&gt; in a new tab and ALSO copies the prompt. Show a
+   readable copy of the prompt, a &quot;Copy again&quot; button, and plain instructions
+   for when Claude opens with an empty box. If the prompt is too long for a
+   link, open a blank chat instead.
+
+RULES
+- No API key, no server, no external libraries. The only link the app may
+  open is claude.ai/new.
+- Every science statement in the library must be correct. Flag any you are
+  unsure about instead of guessing.
+- Show typed text as plain text, never as HTML.
+- Explain every part of the code to me in simple English after the code.
+
+AT THE END
+Give me: (a) how to test this stage by opening the file in my browser,
+(b) test answers to try, including one unsafe idea, one idea that is not
+in the library, and one body-organ idea (for example &quot;digestive system&quot;),
+and (c) a short verification note for this stage.</code></pre>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

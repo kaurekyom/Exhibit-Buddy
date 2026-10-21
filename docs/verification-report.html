@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification report (Exhibit Buddy) - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="verification-report-exhibit-buddy">Verification report (Exhibit
+Buddy)</h1>
+<p>Date of report: 21 October 2026. Status: <strong>not yet reviewed by
+a teacher or built by a student.</strong> Legend: ✅ checked by running
+code or by eye · 🔶 checked by the author only (needs a teacher) · ❌
+not verified.</p>
+<h2 id="1-what-was-tested-by-code">1. What was tested by code</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Area</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Interview engine, routing, unsafe-idea refusal
+(<code>test_v2.js</code>, 692 checks)</td>
+<td>✅ pass</td>
+</tr>
+<tr class="even">
+<td>Guide import from Claude, validation, A4 fit, true-scale templates
+(<code>test_v3.js</code>, 132)</td>
+<td>✅ pass</td>
+</tr>
+<tr class="odd">
+<td>Tray demo order equals written step order (<code>test_v4.js</code>,
+119)</td>
+<td>✅ pass</td>
+</tr>
+<tr class="even">
+<td>3D models, pictures, labelled figures, hostile input
+(<code>test_v5.js</code>, 256)</td>
+<td>✅ pass</td>
+</tr>
+<tr class="odd">
+<td>No outside files or scripts are loaded; the only web addresses in
+the file are the SVG standard and the two claude.ai links</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<p><code>test_stage1.js</code> is an old script that was replaced by
+<code>test_v2.js</code>; ignore it.</p>
+<h2 id="2-facts-in-the-built-in-material-all--need-a-teacher">2. Facts
+in the built-in material (all 🔶: need a teacher)</h2>
+<p>These were written from general science knowledge. They were
+<strong>not</strong> compared line by line with a textbook in this
+project.</p>
+<ul>
+<li><strong>Pinhole camera</strong>: light travels in straight lines;
+the image is upside down and left-right reversed; a smaller hole gives a
+sharper but dimmer image; black inside reduces stray light.</li>
+<li><strong>Paper parachute</strong>: gravity pulls down; air resistance
+pushes up and grows with canopy area; a larger canopy falls more
+slowly.</li>
+<li><strong>Animal cell</strong>: membrane, cytoplasm, nucleus (DNA,
+nucleolus), mitochondria (respiration, ATP), endoplasmic reticulum
+(rough and smooth), Golgi apparatus, ribosomes, lysosomes.</li>
+<li><strong>Carbon atom</strong>: 6 protons, 6 neutrons (carbon-12), 6
+electrons, K shell 2 and L shell 4 (electron arrangement 2, 4); the
+nucleus is about 100,000 times smaller than the atom.</li>
+<li><strong>Solar system</strong>: eight planets in order; Mercury about
+88 days and Neptune about 165 years per orbit; Sun holds about 99.8% of
+the mass; Venus is the hottest planet; Mars is red from iron oxide;
+Uranus found in 1781. Teacher action: tick each bullet in
+<code>docs/teacher-review-checklist.md</code>.</li>
+</ul>
+<h2 id="3-dimension-cross-check">3. Dimension cross-check</h2>
+<ul>
+<li>✅ Every part has a template or is a loose item; templates fit A4;
+every part in the steps exists; every part is used (code-checked).</li>
+<li>✅ Templates are drawn at 1 unit = 1 mm with a 50 mm scale bar on
+each sheet.</li>
+<li>❌ Nobody has printed on a real printer and measured the scale
+bar.</li>
+<li>❌ Nobody has built a model from the guide.</li>
+</ul>
+<h2 id="4-safety-review-">4. Safety review (🔶)</h2>
+<ul>
+<li>Steps with pins, craft knives, scissors, hot glue and similar are
+labelled "Ask an adult" by a word list; unsafe ideas (fire, chemicals,
+electricity at mains level, weapons and similar) are refused by a
+keyword screen.</li>
+<li>A keyword screen is <strong>not</strong> a complete safety check.
+Words it does not know will pass. A teacher must read every Claude-made
+guide before the student starts.</li>
+</ul>
+<h2 id="5-accessibility">5. Accessibility</h2>
+<ul>
+<li>✅ Keyboard use: all buttons work; figure parts are focusable and
+respond to Enter; the 3D demo responds to arrow keys.</li>
+<li>✅ Reduce motion: toggle in the 3D demo; figures start paused if the
+device asks for reduced motion.</li>
+<li>✅ Phone width (390 px): no sideways scrolling in the pages
+tested.</li>
+<li>🔶 Font size and colour contrast chosen for readability but not
+measured with a contrast tool.</li>
+<li>❌ Not tested with a screen reader. Pictures have text labels, but
+the 3D model itself is not described in detail.</li>
+</ul>
+<h2 id="6-assumptions-and-open-risks">6. Assumptions and open risks</h2>
+<ol type="1">
+<li>Claude's replies can contain wrong science. The app checks
+structure, not truth.</li>
+<li>The "Open Claude with this prompt" link is <strong>not tested on
+live claude.ai</strong>. Fallback: the prompt is copied; paste it.</li>
+<li>In pinhole step 10 the 3D lid shows small dark gaps at two top
+corners (drawing issue only).</li>
+<li>Figures drawn by Claude are checked for shape and safety of text
+only.</li>
+<li>Planets are not to scale and speeds are for show (stated in the
+figure).</li>
+<li>Only two built-in build guides exist; all other build topics rely on
+Claude.</li>
+</ol>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

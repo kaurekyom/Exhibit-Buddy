@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Verification Checklist - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="verification-checklist">Verification Checklist</h1>
+<p>Tick each item after the relevant stage. If you cannot verify
+something, write "unverified" next to it and ask Claude or a
+teacher.</p>
+<h2 id="stage-1-interview-engine-and-open-claude-button">Stage 1:
+Interview engine and Open Claude button</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />App opens by double-clicking
+index.html (no errors)</label></li>
+<li><label><input type="checkbox" />Never asks more than 5
+questions</label></li>
+<li><label><input type="checkbox" />"Here is what I understood" summary
+appears before the plan is saved</label></li>
+<li><label><input type="checkbox" />An unsafe idea (e.g. a bomb, mains
+electricity) is refused with no way to continue</label></li>
+<li><label><input type="checkbox" />A risky idea (e.g. laser light show)
+shows an "Extra care" caution but is not refused</label></li>
+<li><label><input type="checkbox" />An idea that is not in the library
+says so plainly and offers "Plan it with Claude" first</label></li>
+<li><label><input type="checkbox" />"Digestive system" gives the Human
+Digestive System Model</label></li>
+<li><label><input type="checkbox" />"Open Claude with this prompt" opens
+Claude in a new tab (prompt filled in, or paste with
+Ctrl+V)</label></li>
+<li><label><input type="checkbox" />Every concept line in the idea
+library read and approved by a science teacher</label></li>
+<li><label><input type="checkbox" />Every idea I plan to build checked
+against my own textbook and class level</label></li>
+</ul>
+<h2 id="stage-2-guide-renderer">Stage 2: Guide renderer</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Materials list quantities match the
+number of parts in the templates</label></li>
+<li><label><input type="checkbox" />Template dimensions match component
+cards and assembly steps</label></li>
+<li><label><input type="checkbox" />Printed at 100% scale, the 5 cm
+scale bar measures exactly 5 cm</label></li>
+<li><label><input type="checkbox" />Solid = cut, dashed = fold, glue
+tabs are numbered</label></li>
+<li><label><input type="checkbox" />Non-paper materials have a reason
+given and a local source</label></li>
+<li><label><input type="checkbox" />Scientific explanations ("Why it
+works") checked against a reliable source</label></li>
+<li><label><input type="checkbox" />Every "Ask an adult" step is
+labelled</label></li>
+<li><label><input type="checkbox" />I built the Paper Parachute and
+Pinhole Camera from the printed templates and noted any
+problems</label></li>
+<li><label><input type="checkbox" />A pasted Claude guide was checked by
+the app, then read by a teacher</label></li>
+</ul>
+<h2 id="stage-3-animated-demo">Stage 3: Animated demo</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Animation step order equals written
+step order (tested by code; also check by eye)</label></li>
+<li><label><input type="checkbox" />Part numbers match cards and
+templates</label></li>
+<li><label><input type="checkbox" />Play, pause, next, previous, restart
+and speed all work</label></li>
+<li><label><input type="checkbox" />Works on a phone and with
+keyboard</label></li>
+<li><label><input type="checkbox" />Reduce-motion option
+works</label></li>
+<li><label><input type="checkbox" />Final assembled shape matches the
+written description</label></li>
+</ul>
+<h2 id="stage-3b-3d-models-pictures-and-labelled-figures">Stage 3b: 3D
+models, pictures and labelled figures</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Pinhole camera and parachute: every
+3D step matches the written step and the part letters match the
+cards</label></li>
+<li><label><input type="checkbox" />Turn the 3D model with the mouse,
+finger, Turn buttons and Shift + arrow keys</label></li>
+<li><label><input type="checkbox" />The picture under each written step
+matches that step</label></li>
+<li><label><input type="checkbox" />A teacher has checked every fact in
+the three built-in figures (animal cell, carbon atom, solar
+system)</label></li>
+<li><label><input type="checkbox" />Select each part by tap, by button
+and by keyboard; the card text matches the part</label></li>
+<li><label><input type="checkbox" />"Test me" asks and scores sensibly;
+"Pause the moving parts" works</label></li>
+<li><label><input type="checkbox" />A figure made by Claude for a new
+topic was read by a teacher before use</label></li>
+<li><label><input type="checkbox" />Printed figure page is
+readable</label></li>
+</ul>
+<h2 id="stage-4-hosting-and-report">Stage 4: Hosting and report</h2>
+<ul class="task-list">
+<li><label><input type="checkbox" />Repository is public and named as
+instructed</label></li>
+<li><label><input type="checkbox" />GitHub Pages enabled (main branch,
+root)</label></li>
+<li><label><input type="checkbox" />Live link opens and shows the
+app</label></li>
+<li><label><input type="checkbox" />Update test: change one word,
+commit, refresh, see the change</label></li>
+<li><label><input type="checkbox" />Verification report lists anything
+unverified</label></li>
+<li><label><input type="checkbox" />A science teacher has reviewed at
+least 3 generated guides</label></li>
+</ul>
+<h2 id="sign-off">Sign-off</h2>
+<ul>
+<li>Student: ____________ Date: ________</li>
+<li>Teacher reviewer: ____________ Date: ________</li>
+</ul>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

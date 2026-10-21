@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 3: Student Steps, Code and Verification - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-3-student-steps-code-and-verification">Stage 3: Student
+Steps, Code and Verification</h1>
+<h2 id="what-the-demo-does">What the demo does</h2>
+<p>Every guide page (built-in or from Claude) now has a section called
+<strong>Watch it go together</strong>. Parts start in a tray. For each
+written step, the parts used in that step are highlighted, and a part
+moves into the assembly area at the first real step that uses it. A blue
+number on a part is that step number. The caption is the written step,
+word for word.</p>
+<p>It shows <strong>order and which parts are used</strong>. It does NOT
+show exact positions or a 3D model, and it says so on the page. Follow
+the written step for how to fit things.</p>
+<p>A step that starts with "Print" only gets the parts ready, so parts
+do not join the model there.</p>
+<h2 id="student-steps-about-15-minutes">Student steps (about 15
+minutes)</h2>
+<ol type="1">
+<li>Get the new code from Claude (paste <code>00-master-prompt.md</code>
+then <code>03-stage-animated-demo.md</code>), save it as
+<code>index.html</code>, refresh.</li>
+<li>Open the Paper Parachute guide. Find <strong>Watch it go
+together</strong>.</li>
+<li>Test each control: | Control | What should happen | |---|---| | Next
+/ Previous | Step number and caption change; parts move | | Play | Steps
+advance by themselves; button says Pause | | Pause | It stops where it
+is | | Speed 0.5x / 1x / 2x | Slower or faster (press Play after
+changing if it was stopped) | | Restart | All parts return to the tray |
+| Reduce motion | Parts jump instead of sliding | | Left / Right arrow
+keys | Click the demo box first, then they change the step |</li>
+<li>Compare: is every animation caption the same as the written step
+below it? Is the part letter the same as on the part card and the
+template?</li>
+<li>Open the Pinhole Camera guide and check the <strong>Ask an
+adult</strong> tag shows in the caption at steps 4 and 7.</li>
+<li>Make a guide with Claude for your own idea and run the demo on
+it.</li>
+</ol>
+<h2 id="how-the-code-works">How the code works</h2>
+<ul>
+<li><strong>Demo.buildSteps</strong> copies each written step and works
+out when each part first joins the model.</li>
+<li><strong>Demo.layout</strong> gives every part a place in the tray
+and in the assembly area.</li>
+<li><strong>Demo.stateAt(k)</strong> says, after step k, which parts are
+placed and which are highlighted.</li>
+<li><strong>demoSection</strong> draws it with SVG and CSS. The parts
+slide because CSS animates their position. The controls change the step
+number <code>k</code>.</li>
+<li><strong>Adding a new exhibit</strong> needs no demo code. Any guide
+data (built-in or pasted) gets a demo from its <code>steps</code> and
+<code>parts</code> lists, so write each step's <code>parts</code>
+carefully.</li>
+</ul>
+<h2 id="step-mapping-animation-step--written-step">Step mapping
+(animation step = written step)</h2>
+<h3 id="paper-parachute">Paper Parachute</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Animation step</th>
+<th>Written step</th>
+<th>Parts highlighted</th>
+<th>Parts that join the model here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>A</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>A</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3</td>
+<td>B</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>4</td>
+<td>A, B</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5</td>
+<td>B</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6</td>
+<td>B, C</td>
+<td>C</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>7</td>
+<td>A, B</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pinhole-camera">Pinhole Camera</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Animation step</th>
+<th>Written step</th>
+<th>Parts highlighted</th>
+<th>Parts that join the model here</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>A, B, C, D</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>A, B, C, D</td>
+<td>A, B, C, D</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3</td>
+<td>A, B, C, D</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>4</td>
+<td>A, C</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5</td>
+<td>A, C</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>6</td>
+<td>A, B</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>7</td>
+<td>A, B, E</td>
+<td>E</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>8</td>
+<td>A</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>9</td>
+<td>A</td>
+<td>none</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>10</td>
+<td>C, D</td>
+<td>none</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>11</td>
+<td>A, C</td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verification">Verification</h2>
+<ul>
+<li>119 automated checks: same step count, order, wording and
+Ask-an-adult flags as the written steps; every part joins once, at a
+step that lists it; no two parts share a spot and all spots are inside
+the picture; start state, end state and highlighted parts at every step;
+Next, Previous, Restart, Play, Pause, speed (2x faster than 0.5x),
+run-to-end, restart-after-end, timer cleared on leaving the page, Reduce
+motion, arrow keys. Tested on both built-in guides and on the 17-part
+digestive-system guide Claude produced.</li>
+<li>Real Chromium screenshots at desktop and phone width: no script
+errors, controls usable, caption readable.</li>
+<li>Earlier checks: 692 (Stage 1) and 132 (Stage 2) still pass.</li>
+</ul>
+<p>Bugs found and fixed: the caption showed the word "null" after step
+1; the tray was too short for 17 parts; "Print the templates" made every
+part appear at step 1.</p>
+<h2 id="not-verified">NOT verified</h2>
+<ol type="1">
+<li>The animation shows order only. It cannot show that a part fits
+where the step says.</li>
+<li>On a phone the picture is small, so part names are tiny; the caption
+carries the real information.</li>
+<li>"Reduce motion" follows the device setting at the start and the
+checkbox afterwards. Tested with the checkbox only.</li>
+<li>No screen reader test. The picture has a text description, and the
+live caption is announced when it changes in browsers that support this,
+but this was not heard on a real screen reader.</li>
+<li>Which parts a step lists comes from the guide data. If Claude lists
+the wrong parts in a step, the demo repeats that mistake.</li>
+</ol>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

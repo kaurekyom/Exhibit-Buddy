@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 1: The Code, Explained in Simple English - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-1-the-code-explained-in-simple-english">Stage 1: The Code,
+Explained in Simple English</h1>
+<p><code>index.html</code> is one file with three parts inside the
+<code>&lt;script&gt;</code> section. Think of it like a person: Part 1
+is the <strong>memory</strong>, Part 2 is the <strong>thinking</strong>,
+Part 3 is the <strong>face and voice</strong>.</p>
+<hr />
+<h2 id="part-1-data-the-memory">Part 1: DATA (the memory)</h2>
+<p><strong>TOPICS</strong> is a list of 14 science topic areas, such as
+Sound, Light and mirrors, or The human body. Each topic has a list of
+<code>words</code>. If you type a word from that list, the app guesses
+your topic.</p>
+<p><strong>IDEAS</strong> is the library of 26 exhibit ideas. Every idea
+is a small block with these facts:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Field</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>title</code></td>
+<td>The name of the exhibit</td>
+</tr>
+<tr class="even">
+<td><code>topic</code></td>
+<td>Which topic area it belongs to</td>
+</tr>
+<tr class="odd">
+<td><code>concept</code></td>
+<td>The science idea it shows</td>
+</tr>
+<tr class="even">
+<td><code>type</code></td>
+<td><code>working</code> (something moves or happens) or
+<code>static</code> (shows and explains)</td>
+</tr>
+<tr class="odd">
+<td><code>difficulty</code>, <code>hours</code></td>
+<td>How hard it is and how long it takes</td>
+</tr>
+<tr class="even">
+<td><code>cost</code></td>
+<td><code>home</code> (things at home) or <code>cheap</code> (a few
+cheap shop items)</td>
+</tr>
+<tr class="odd">
+<td><code>materials</code></td>
+<td>Main things you need</td>
+</tr>
+<tr class="even">
+<td><code>safety</code>, <code>safetyNote</code></td>
+<td><code>low</code> or <code>adult</code>, plus a safety tip</td>
+</tr>
+<tr class="odd">
+<td><code>keywords</code></td>
+<td>Words that make the app pick this idea</td>
+</tr>
+</tbody>
+</table>
+<p><strong>The app does not claim any school syllabus.</strong> It is
+generic. Your teacher decides whether an idea suits your class.</p>
+<p><strong>The safety rules:</strong></p>
+<ul>
+<li><code>UNSAFE_RULES</code>: ideas the app refuses (explosives, mains
+electricity, strong chemicals, weapons, growing germs). There is no way
+to continue.</li>
+<li><code>NOTE_RULES</code>: cautions for risky or advanced ideas
+(lasers, nuclear, robots, batteries). The app shows an "Extra care",
+"Model only", "Advanced topic" or "Batteries only" box, but lets you
+continue.</li>
+<li><code>ADULT_WORDS</code>: words like candle or boiling. The app adds
+an <strong>Ask an adult</strong> label.</li>
+</ul>
+<p><strong>To add a new idea:</strong> copy one block in
+<code>IDEAS</code>, change the words, and add a comma between blocks.
+Every fact must be correct, so check it with a reliable source.</p>
+<hr />
+<h2 id="part-2-engine-the-thinking">Part 2: ENGINE (the thinking)</h2>
+<p>The engine only makes decisions. It never draws anything, so it is
+easy to test.</p>
+<p><strong><code>normalize</code></strong> turns what you type into
+simple lowercase words. "Newton's Cradle!" becomes "newton s
+cradle".</p>
+<p><strong><code>hasWord</code></strong> checks if a word is in your
+text. "balloons" counts as "balloon", but "working" does not count as
+"work". This stops silly matches. (This is also why the planet Mercury
+is allowed but liquid mercury is refused.)</p>
+<p><strong><code>screen</code></strong> checks your idea against the
+safety lists <em>first</em>, before anything else.</p>
+<p><strong><code>scoreIdeas</code></strong> gives every idea points:</p>
+<ul>
+<li>2 points for each keyword you typed.</li>
+<li>1 point for a special word from the title. Common words such as
+"model" and "paper" are ignored, because they appear in many
+titles.</li>
+</ul>
+<p><strong><code>first</code></strong> decides what to do after your
+first answer:</p>
+<ol type="1">
+<li>If you are unsure, go to the topic question.</li>
+<li>If an idea scores 2 or more, use it (<code>idea</code>).</li>
+<li>Otherwise, if your words match a topic, offer the related ideas
+(<code>topic</code>). The app says clearly that it has no exact plan and
+puts the Claude button first.</li>
+<li>Otherwise, say "I do not have a ready-made plan" and offer Claude
+(<code>none</code>).</li>
+</ol>
+<p><strong><code>nextQuestion</code></strong> asks a follow-up question
+<strong>only if the answer can change the result</strong>. It tries each
+question (type, time, materials) and checks how many ideas the answer
+would remove. If no answer would remove any idea, it does not ask. It
+also stops when 3 or fewer ideas are left, or when 5 questions have been
+asked.</p>
+<p><strong><code>shortlist</code></strong> picks the best 3 ideas: the
+easiest first, then the quickest.</p>
+<hr />
+<h2 id="part-3-screens-the-face-and-voice">Part 3: SCREENS (the face and
+voice)</h2>
+<p><strong><code>el()</code></strong> builds a piece of the page (a
+heading, a button). We use it instead of pasting text into the page as
+HTML. This means anything a student types is shown as plain text and can
+never run as code.</p>
+<p><strong><code>show()</code></strong> clears the page and puts new
+content in. It also moves the keyboard focus to the heading so screen
+readers read it.</p>
+<p><strong><code>notice()</code></strong> makes the coloured boxes.
+Every box begins with a <strong>word</strong> (Warning, Stop, Ask an
+adult, Safety tip), so the meaning never depends on colour alone.</p>
+<p><strong>The screens</strong> are functions: <code>showStart</code>,
+<code>showQ1</code>, <code>showQuestion</code>, <code>showPick</code>,
+<code>showSummary</code>, <code>showConfirmed</code>,
+<code>showRefuse</code>, <code>showNoMatch</code>,
+<code>showAssisted</code>. Each button calls the next one.</p>
+<p><strong><code>state</code></strong> is a notebook the app writes in:
+how many questions were asked, which ideas are still possible, your
+class (optional), and which idea you picked.</p>
+<h3 id="the-open-claude-button">The Open Claude button</h3>
+<p><strong><code>buildAssistedPrompt</code></strong> writes the prompt
+for ideas outside the library. It includes your idea, your class or age
+(if you gave it), any safety cautions, and instructions: check the
+level, ask at most 3 questions, avoid unsafe steps, and be honest when
+unsure.</p>
+<p><strong><code>claudeUrl</code></strong> turns the prompt into a web
+address: <code>https://claude.ai/new?q=</code> followed by the prompt
+with special characters encoded. If the prompt is too long for a web
+address, it opens a blank chat instead.</p>
+<p><strong>The blue button is a link</strong> (an <code>&lt;a&gt;</code>
+tag), not a script. Links open in a new tab without being blocked by the
+browser. When you click, the app also <strong>copies the
+prompt</strong>, so if Claude opens with an empty box you can paste it
+with Ctrl+V.</p>
+<p><strong><code>copyText</code></strong> copies using the browser's
+clipboard. If that is not allowed, it selects the text in the box so you
+can press Ctrl+C.</p>
+<p><strong>The last line</strong> (<code>DOMContentLoaded</code>) starts
+the app when the page finishes loading.</p>
+<hr />
+<h2 id="why-no-api-key">Why no API key?</h2>
+<p>GitHub Pages cannot keep a secret. Anything in
+<code>index.html</code> can be read by anyone. So the app does its own
+thinking with the rules above, and opens Claude, where
+<strong>you</strong> are signed in, when it needs more help.</p>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

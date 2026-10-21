@@ -4,7 +4,9 @@ A web app that helps a school student plan a science exhibit on any topic. It as
 
 **Live app:** https://kaurekyom.github.io/Exhibit-Buddy/
 
-Everything is one file, `index.html`. It needs no server, no account and no API key.
+**Documentation (web pages):** https://kaurekyom.github.io/Exhibit-Buddy/docs/ : how it was created, how it works, how to use it, and the verification report.
+
+The app is one file, `index.html`. It needs no server, no account and no API key.
 
 ## How to use it (for students)
 1. Open the live link. Press **Start** and answer the questions.

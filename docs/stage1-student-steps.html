@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 1: Student Steps - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-1-student-steps">Stage 1: Student Steps</h1>
+<p>You will create the Exhibit Buddy interview app yourself. You do not
+need to know coding. You will copy code from Claude, save it as a file,
+open it in your browser, and test it.</p>
+<p>Time needed: about 30 minutes.</p>
+<hr />
+<h2 id="part-a-create-the-file">Part A: Create the file</h2>
+<p><strong>Step 1. Get the code from Claude.</strong> In your Exhibit
+Buddy project chat, paste <code>00-master-prompt.md</code> and then
+<code>01-stage-interview-engine.md</code>. Claude will reply with one
+big block of code that starts with <code>&lt;!DOCTYPE html&gt;</code>.
+Click the <strong>Copy</strong> button on that code block.</p>
+<p><strong>Step 2. Open a plain text editor.</strong></p>
+<ul>
+<li>Windows: press the Start button, type <strong>Notepad</strong>,
+press Enter.</li>
+<li>Mac: open <strong>TextEdit</strong>, then choose <strong>Format &gt;
+Make Plain Text</strong> (menu names can be slightly different on your
+computer).</li>
+</ul>
+<p><strong>Step 3. Paste the code.</strong> Click inside the empty page
+and press <strong>Ctrl+V</strong> (Windows) or <strong>Cmd+V</strong>
+(Mac). You should see many lines of text. This is normal. It is your
+app.</p>
+<p><strong>Step 4. Save it as <code>index.html</code>.</strong></p>
+<ul>
+<li>Windows Notepad: <strong>File &gt; Save As</strong>. In <strong>Save
+as type</strong>, choose <strong>All files</strong>. Name the file
+<code>index.html</code>. Set <strong>Encoding</strong> to
+<strong>UTF-8</strong>. Save it in a new folder called
+<code>exhibit-buddy</code>.</li>
+<li>Mac TextEdit: <strong>File &gt; Save</strong>. Name it
+<code>index.html</code>. If it asks about <code>.html</code> or
+<code>.txt</code>, choose <strong>.html</strong>.</li>
+</ul>
+<p><strong>Check it worked:</strong> the file's icon should look like a
+web page (a browser logo), not a notepad. If the name shows
+<code>index.html.txt</code>, the extension is wrong. Rename it and
+remove <code>.txt</code>. On Windows, turn on <strong>View &gt; Show
+&gt; File name extensions</strong> in File Explorer to see this.</p>
+<hr />
+<h2 id="part-b-open-it">Part B: Open it</h2>
+<p><strong>Step 5.</strong> Double-click <code>index.html</code>. It
+opens in your browser.</p>
+<p><strong>Check it worked:</strong> you see a blue bar with
+<strong>Exhibit Buddy</strong> at the top, the word
+<strong>Welcome!</strong>, and a <strong>Start</strong> button.</p>
+<p>If you see a lot of code instead of a web page, the file was saved as
+text. Go back to Step 4.</p>
+<hr />
+<h2 id="part-c-test-it-do-all-five">Part C: Test it (do all five)</h2>
+<p>Press <strong>Start</strong>, then type the idea in the box and press
+<strong>Next</strong>. You can also type your class (for example
+<code>Class 7</code>) in the optional box. After each test, press
+<strong>Start over</strong> (or refresh the page with F5).</p>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Type this</th>
+<th>What you should see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><code>balloon rocket</code></td>
+<td>Straight to <strong>Here is what I understood</strong> with Balloon
+Rocket. Only 1 question asked.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Press <strong>I am not sure yet</strong>, then choose
+<strong>Sound</strong></td>
+<td>Three sound ideas to choose from. Pick one and see the summary.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><code>digestive system</code></td>
+<td>The summary for <strong>Human Digestive System Model</strong>. Any
+science topic is allowed.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><code>bomb</code></td>
+<td>A <strong>Stop</strong> message. There is no Continue button. This
+is correct.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><code>origami frog</code></td>
+<td><strong>I do not have a ready-made plan for that.</strong> Press
+<strong>Plan it with Claude</strong>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Test 5 in detail (the Open Claude button):</strong></p>
+<ol type="1">
+<li>On the next screen, you see a blue button: <strong>Open Claude with
+this prompt</strong>.</li>
+<li>Press it. Claude opens in a <strong>new tab</strong> with your
+prompt already written in the box. The app also copies the prompt for
+you.</li>
+<li>If the box in Claude is empty, click in it and press
+<strong>Ctrl+V</strong> (Cmd+V on a Mac).</li>
+<li>If the prompt is there but not sent, press <strong>Send</strong>. If
+Claude asks you to sign in, sign in first.</li>
+</ol>
+<p>Also try these two:</p>
+<ul>
+<li><code>human heart model</code>: you see "I do not have an exact
+plan" and a button to plan it with Claude first, because the heart is
+not in the library.</li>
+<li><code>laser light show</code>: you see an <strong>Extra
+care</strong> box about lasers. It does not stop you, but it tells you
+to ask an adult.</li>
+</ul>
+<p><strong>Write down:</strong> did everything behave as expected? If
+not, copy what you typed and what you saw, and tell Claude.</p>
+<hr />
+<h2 id="part-d-try-changing-something-this-is-how-you-learn">Part D: Try
+changing something (this is how you learn)</h2>
+<ol type="1">
+<li>Open <code>index.html</code> in Notepad again (right-click the file,
+choose <strong>Open with &gt; Notepad</strong>).</li>
+<li>Press <strong>Ctrl+F</strong> and search for
+<code>Balloon Rocket</code>.</li>
+<li>Change <code>Balloon Rocket</code> to
+<code>Super Balloon Rocket</code>. Save.</li>
+<li>Go to your browser and press <strong>F5</strong> to refresh. Run
+test 1 again.</li>
+</ol>
+<p><strong>Check it worked:</strong> the summary now says Super Balloon
+Rocket.</p>
+<p>Now you know how every idea in the app is stored. In Stage 2 you will
+use the same idea data to build the full guide.</p>
+<hr />
+<h2 id="part-e-check-your-plan-before-you-build">Part E: Check your plan
+before you build</h2>
+<p>The app does not know your school, your class or your syllabus.
+Before you build anything:</p>
+<ul>
+<li>Ask your science teacher whether the idea suits your class.</li>
+<li>Ask an adult to check any step with heat, batteries, glass or sharp
+tools.</li>
+</ul>
+<hr />
+<h2 id="if-something-goes-wrong">If something goes wrong</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Blank white page</td>
+<td>Make sure you copied ALL the code, from
+<code>&lt;!DOCTYPE html&gt;</code> to the last
+<code>&lt;/html&gt;</code>.</td>
+</tr>
+<tr class="even">
+<td>Page shows code, not the app</td>
+<td>The file is <code>.txt</code>. Rename it to
+<code>index.html</code>.</td>
+</tr>
+<tr class="odd">
+<td>Buttons do nothing</td>
+<td>Some of the code was missed when pasting. Copy it again from
+Claude.</td>
+</tr>
+<tr class="even">
+<td>Strange symbols like <code>â€”</code></td>
+<td>Save again with Encoding set to UTF-8.</td>
+</tr>
+<tr class="odd">
+<td>Open Claude button opens an empty chat</td>
+<td>Press Ctrl+V (Cmd+V on a Mac) to paste. The app copied the prompt
+for you.</td>
+</tr>
+<tr class="even">
+<td>Nothing opens when I press Open Claude</td>
+<td>Your browser may block new tabs. Allow pop-ups for this page, or
+press <strong>Copy the prompt again</strong>, go to claude.ai yourself,
+and paste.</td>
+</tr>
+<tr class="odd">
+<td>Copy button says to copy yourself</td>
+<td>Normal on some browsers. Click in the prompt box and press
+Ctrl+C.</td>
+</tr>
+</tbody>
+</table>
+<p>When all five tests pass, tick the Stage 1 items in
+<code>verification-checklist.md</code>.</p>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Exhibit Buddy: Master Prompt (RTCCO) - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="../docs/index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../docs/../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="exhibit-buddy-master-prompt-rtcco">Exhibit Buddy: Master Prompt
+(RTCCO)</h1>
+<p>Use this as the reference spec. Run it in four stages (see the other
+files in this folder) rather than all at once.</p>
+<p>This version is generic: it works for any school science topic and
+any class. It is not tied to one board or syllabus.</p>
+<pre><code># ROLE
+I am a school student. I am building this project myself. The only tools I
+know are Claude AI (chat) and github.com in my web browser. I do not know
+coding, the terminal, Git commands, or any other software or accounts.
+
+You are my patient mentor and developer. You do all the coding. You explain
+everything in simple English, one step at a time, and never assume I know a
+technical term without explaining it.
+
+# TASK
+Help me create an AI-guided web app called &quot;Exhibit Buddy&quot; and host it for
+free on GitHub Pages, using only Claude and github.com.
+
+The app helps students plan a science exhibition on ANY science topic. It
+interviews the student, decides when it understands the idea, and then
+produces a complete HTML build guide with an animated assembly demo.
+
+Also give me beginner step-by-step instructions to create the app and host it:
+1. Create a GitHub account (if needed) and a new public repository.
+2. Add the files using only the browser (&quot;Add file &gt; Create new file&quot; or
+   &quot;Upload files&quot;), with exact file names and copy-paste code.
+3. Turn on GitHub Pages (Settings &gt; Pages), wait for it to publish, and
+   open the live link.
+4. Update the app later, and fix common mistakes (blank page, 404, old
+   version showing).
+Describe what I should see on screen after each step so I can confirm it worked.
+
+# CONTEXT
+## A. Technical limits (because of what I know)
+- Keep the app as ONE self-contained index.html, or as few files as
+  possible. No build tools, no installs, no terminal.
+- GitHub Pages cannot keep secrets, so do not put an API key in the code.
+  The app must work with no API key and no extra accounts.
+- Make the interview &quot;smart&quot; without a server: build an adaptive decision
+  engine in JavaScript, with a built-in library of ready-made exhibit ideas
+  across school science (motion and force, gravity, energy, sound, light,
+  electricity with batteries only, matter, chemical reactions, atoms,
+  cells, the human body, plants and health, earth and space, natural
+  resources) and branching questions.
+- Claude-assisted mode, for ANY idea that is not in the library (for example
+  a body organ that is not in the list):
+  * The app writes a ready-made prompt that includes the student&#39;s idea,
+    class or age (optional), safety cautions, and clear instructions.
+  * A button opens Claude (claude.ai/new?q=...) in a new tab with the
+    prompt filled in, and the app also copies the prompt as a fallback.
+    The student must be told what to do if Claude opens with an empty box.
+  * Later (Stage 2), the student pastes Claude&#39;s reply back into the app so
+    it renders the same guide and animation.
+
+## B. Adaptive interview
+- Start with one open question about what exhibit I have in mind, plus an
+  optional &quot;class or age&quot; field.
+- Ask only follow-ups that change the outcome (topic, working model or
+  static, time, budget, materials at home).
+- Maximum 5 questions. Do not ask what can be inferred. If I&#39;m unsure,
+  suggest 3 easy ideas to choose from.
+- If my idea is not in the library, say so plainly and offer Claude-assisted
+  mode first. Never show unrelated ideas as if they were what I asked for.
+- Show a short &quot;Here is what I understood&quot; summary and ask me to confirm
+  before generating the guide.
+
+## C. Reference model for the guide
+- Visit the Canon Creative Park paper-craft site and study how a finished
+  model is broken down into parts, printable templates, fold/cut/glue marks,
+  numbered assembly steps, and difficulty/time estimates.
+- This is for your reference only. Do NOT mention Canon anywhere in the app,
+  code, or output, and do not copy its templates. Create original ones.
+- If you cannot access the site, tell me and ask me to paste example pages.
+
+## D. The generated guide must contain
+1. Exhibit title, the science concept it shows, and a simple &quot;Why it works&quot;.
+2. Materials list with quantity, size and where to get each item locally
+   (home, stationery shop, hardware shop, scrap). Use paper first; use
+   other materials only when paper cannot do the job, and say why.
+3. Each component as a numbered card with a drawing, dimensions in cm/mm,
+   and cut/fold/glue steps.
+4. Printable A4 templates (true scale): solid cut lines, dashed fold lines,
+   numbered glue tabs.
+5. A numbered assembly sequence (Step 1..N) linked to part numbers.
+6. An ANIMATED assembly demo (HTML/CSS/SVG/JS only): numbered parts move
+   into place step by step, with play, pause, next, previous and speed
+   controls, and a caption per step matching the written instructions.
+7. Safety notes, a testing checklist, troubleshooting tips, 3 viva
+   questions with model answers, and a short glossary.
+- Mobile-friendly and printable.
+
+# CONSTRAINTS
+- Facts, formulas, dimensions, quantities and circuits must be correct.
+  Check that template sizes match the assembly steps and that part counts
+  match the materials list. If something cannot be verified, say so
+  instead of guessing.
+- Fit the student&#39;s level. If the idea is too advanced for the class or age
+  given, say so, explain the main idea with a simpler model the student can
+  build, and ask whether to continue. If it is too easy, suggest ways to
+  extend it. Do not claim an idea matches a particular syllabus or textbook
+  chapter unless you have verified it from an official source.
+- Safety for a minor comes first. Refuse outright: explosives, fireworks,
+  weapons, mains electricity or high voltage, strong acids or other
+  dangerous chemicals, growing germs, dangerous fuels. Add an &quot;Ask an adult&quot;
+  label to anything with heat, flame, electricity (batteries only), glass,
+  or sharp tools.
+- Every instruction must be doable by someone who has never coded.
+- Readable fonts, good contrast, no reliance on color alone.
+
+# OUTPUT
+1. Complete file(s) ready to paste into GitHub, with exact file names.
+2. Beginner hosting guide (steps above) with what to expect at each stage.
+3. One sample generated guide (a simple paper working model) showing the
+   full instructions and the animated numbered assembly.
+4. A short verification report: facts checked, assumptions, open risks.</code></pre>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

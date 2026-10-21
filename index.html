@@ -1837,7 +1837,8 @@ function showStart() {
       " short questions. Then I will check that your idea is safe. If I do not have a ready-made plan, I will help you plan it with Claude."),
     button("Start", showQ1, true),
     el("p", null, "Or just explore:"),
-    button("Explore a labelled figure (cells, atoms, planets and more)", showFigureHome)
+    button("Explore a labelled figure (cells, atoms, planets and more)", showFigureHome),
+    el("p", { class: "small" }, el("a", { href: "docs/index.html" }, "How this project was made, how it works, and how well it was checked"))
   );
 }
 

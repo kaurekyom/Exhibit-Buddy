@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 3b: 3D assembly models, pictures and labelled figures - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-3b-3d-assembly-models-pictures-and-labelled-figures">Stage
+3b: 3D assembly models, pictures and labelled figures</h1>
+<p>This stage answers the feedback "show me drawings and clear visuals
+of how the parts fit together" and "there should be something similar
+for biology, cells and atoms".</p>
+<h2 id="what-the-student-sees">What the student sees</h2>
+<h3
+id="1-build-it-exhibits-pinhole-camera-and-paper-parachute-are-built-in">1.
+Build-it exhibits (pinhole camera and paper parachute are built in)</h3>
+<ul>
+<li><strong>How the parts fit together</strong>: shaded 3D pictures
+(parts laid out, exploded view) plus a flat "How it works" diagram
+(light rays, or forces).</li>
+<li><strong>Watch it go together</strong>: a 3D model that folds, flips
+and joins the parts step by step. Controls: Play, Previous, Next,
+Restart, speed, Turn left/right, Tilt, Reset view, Reduce motion. Drag
+the model to turn it. Arrow keys change step; Shift + arrow keys turn
+the model. A readout shows live numbers (for example "Foil moved onto
+the base: 100%").</li>
+<li><strong>A picture under every written step</strong>. These also
+print.</li>
+<li>Part letters in the pictures match the letters on the part cards and
+templates.</li>
+</ul>
+<h3 id="2-guides-written-by-claude-any-topic">2. Guides written by
+Claude (any topic)</h3>
+<p>These still use the tray animation. A box "Add pictures that show how
+the parts fit together" gives the student one prompt for Claude and one
+paste box. The app checks every picture before showing it.</p>
+<h3 id="3-labelled-figures-cells-atoms-animals-planets-any-topic">3.
+Labelled figures (cells, atoms, animals, planets, any topic)</h3>
+<p>Start screen → "Explore a labelled figure".</p>
+<ul>
+<li>Built in: <strong>animal cell</strong>, <strong>carbon atom (Bohr
+model)</strong>, <strong>solar system</strong>.</li>
+<li>Tap a part, or press its button, to read what it is and what it
+does. Parts have keyboard focus; Enter selects.</li>
+<li>Parts can move in orbits (electrons, planets). "Pause the moving
+parts" stops them; the app starts paused if the device asks for reduced
+motion.</li>
+<li>"Test me": asks "Which part is the …?", says Yes/Not quite, and
+scores first-try answers.</li>
+<li>"Plan it with Claude": the same one-prompt, one-paste flow as the
+guides, for any topic.</li>
+</ul>
+<h2 id="how-it-is-built-for-the-student-to-read">How it is built (for
+the student to read)</h2>
+<p>Everything is in <code>index.html</code>.</p>
+<ul>
+<li><code>Studio</code> (section 2E) is a small 3D engine: faces in
+millimetres, a turn-and-tilt camera, four-tone shading, far-to-near
+drawing order. Each model lists its parts and says where they are after
+each step.</li>
+<li><code>Scenes</code> (section 2D) checks flat pictures from Claude.
+<code>Figures</code> (section 2F) checks labelled figures. They only
+accept known shapes, known colours, numbers in range and plain text (no
+<code>&lt;</code>, <code>&gt;</code> or web addresses), and they build
+the page with text nodes only, never <code>innerHTML</code>.</li>
+<li>Built-in figures pass through the same checker as Claude's figures.
+During development the checker rejected one of our own colour
+names.</li>
+</ul>
+<h2 id="tests-run-with-node--jsdom">Tests (run with Node + jsdom)</h2>
+<p><code>test_v5.js</code> (256 checks): model step counts, every
+coordinate a number at every step and animation time, tab strips inside
+the box, demo controls and keyboard, a picture under every step, the
+add-pictures flow, malformed and hostile input (markup, web addresses,
+out-of-range numbers, unknown shapes, prototype pollution), figure
+selection by click, button and Enter, orbit movement, quiz scoring, the
+carbon atom (2 + 4 electrons, 6 protons, 6 neutrons), the solar system
+(Sun + 8 planets in distance order), unsafe-topic refusal.
+<code>test_v2</code> to <code>test_v4</code> still pass (692, 132, 119).
+<code>test_stage1</code> is an early script that was replaced by
+<code>test_v2</code> and is no longer used. Screenshots from Chromium
+were checked by eye on desktop and a 390 px phone width.</p>
+<h2 id="honest-limits">Honest limits</h2>
+<ul>
+<li>Not tried on real phones, printers or screen readers.</li>
+<li>Nobody has built the models from the guides yet. The 3D model shows
+the intended result; the student must still follow the written
+steps.</li>
+<li>The pinhole 3D lid has small dark gaps at two top corners in step 10
+(the lid is drawn slightly smaller than the box opening). It does not
+affect the instructions.</li>
+<li>Figures are simplified (see each figure's note). A teacher must
+check the science. The app cannot verify facts in figures drawn by
+Claude.</li>
+<li>The "Open Claude with this prompt" link has not been tested on live
+claude.ai. If the box opens empty, the prompt is already copied; paste
+it.</li>
+<li>Planets are not to scale and their speeds are for show; the figure
+says so.</li>
+</ul>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

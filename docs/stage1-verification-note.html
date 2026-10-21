@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 1: Verification Note (generic version) - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-1-verification-note-generic-version">Stage 1: Verification
+Note (generic version)</h1>
+<h2 id="what-was-checked-and-how">What was checked and how</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>Method</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>App opens and shows the start screen</td>
+<td>Ran the real <code>index.html</code> in a simulated browser (jsdom),
+including the real page-load event</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Never more than 5 questions</td>
+<td>Drove the app with 60 different inputs (single words, blanks,
+symbols, 250-character text, mixed topics, body organs, space, advanced
+topics)</td>
+<td>Pass, no crashes</td>
+</tr>
+<tr class="odd">
+<td>Summary shown before the plan is saved</td>
+<td>Flow tests</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Unsafe idea refused with no way to continue</td>
+<td>Tests with 5 unsafe phrases, plus liquid mercury</td>
+<td>Pass</td>
+</tr>
+<tr class="odd">
+<td>Risky ideas show a caution but are not refused</td>
+<td>Tests with laser and electromagnet</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>"Digestive system" works (the case that failed before)</td>
+<td>Test</td>
+<td>Pass: Human Digestive System Model</td>
+</tr>
+<tr class="odd">
+<td>An idea outside the library offers Claude first</td>
+<td>Tests with "origami frog" and "human heart model"</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>The Open Claude link carries the whole prompt, opens a new tab, and
+copies as a fallback</td>
+<td>Tests on the link's address, target and click behaviour</td>
+<td>Pass</td>
+</tr>
+<tr class="odd">
+<td>Very long idea does not break the link</td>
+<td>Test with a 300-character idea</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>Typed text (idea and class) cannot run as code</td>
+<td>Typed HTML tags into both boxes</td>
+<td>Pass: shown as plain text</td>
+</tr>
+<tr class="odd">
+<td>Library data is consistent</td>
+<td>26 ideas: valid fields, unique IDs, every topic has an idea, every
+idea found by its own title, no idea or topic word wrongly refused</td>
+<td>Pass</td>
+</tr>
+<tr class="even">
+<td>No "Canon", no API key, no Class 9 / NCERT / CBSE wording, no web
+address except claude.ai/new</td>
+<td>Searched the file</td>
+<td>Pass</td>
+</tr>
+</tbody>
+</table>
+<p>Total: 692 automated checks, 0 failed, no page script errors.</p>
+<p>Bugs found by the tests and fixed: (1) the word "model" matched many
+idea titles; (2) the safety rule refused the planet Mercury along with
+the metal. Also changed: the simple-circuit bulb is now "rated about 3
+V" so that it matches two AA cells.</p>
+<h2 id="not-verified-please-read">NOT verified (please read)</h2>
+<ol type="1">
+<li><strong>The Open Claude link on the live Claude website.</strong> I
+could not test it against claude.ai. Anthropic's support page documents
+a prefilled-prompt link for Claude Desktop
+(<code>claude://claude.ai/new?q=...</code>), which fills in the prompt
+for the user to review and send, with long prompts cut at about 14,000
+characters. The web form (<code>https://claude.ai/new?q=...</code>) is
+described only by a third-party tool. It may fill the box and send
+automatically, or only fill it, or need you to sign in first. This is
+why the app always copies the prompt too and tells the student to press
+Ctrl+V. <strong>Please test it on your own browser.</strong></li>
+<li><strong>Science statements.</strong> Each idea's concept line is a
+short, standard statement. I reviewed the 8 new ones (digestive system,
+breathing, solar system, pinhole camera, periscope, circuit, baking soda
+volcano, seed germination), but nothing was checked against a printed
+textbook. A science teacher should read all 26.</li>
+<li><strong>Level and syllabus.</strong> The app no longer claims any
+syllabus. Whether an idea suits a student's class is for the student and
+teacher to decide.</li>
+<li><strong>Real devices.</strong> Tested in a simulated browser only.
+Not yet tested on a real phone, a screen reader, or with printing.</li>
+<li><strong>Keyword matching is simple.</strong> It can miss unusual
+wording (the app then offers Claude, which is safe) or, rarely, match
+the wrong idea. The student always sees the matched idea and must
+confirm it.</li>
+<li><strong>Safety word lists are not complete.</strong> They cover
+common cases only. A new unsafe idea could pass through to
+Claude-assisted mode. The prompt asks Claude to refuse unsafe steps, but
+a teacher or adult should review any plan before building.</li>
+<li><strong>Simple-circuit materials.</strong> A 3 V bulb with two AA
+cells is a standard match, but an adult should check the actual bulb and
+cell ratings when building.</li>
+</ol>
+<h2 id="assumptions">Assumptions</h2>
+<ul>
+<li>The student uses a modern browser on a computer or phone.</li>
+<li>Materials marked <code>home</code> or <code>cheap</code> are common
+household or stationery-shop items. Prices are not stated in the
+app.</li>
+<li>Build times (1 to 6 hours) are estimates for a first-time builder
+and will be refined in Stage 2.</li>
+</ul>
+<h2 id="sources-for-the-open-claude-link">Sources for the Open Claude
+link</h2>
+<ul>
+<li>Anthropic support: <a
+href="https://support.claude.com/en/articles/14729294-open-claude-desktop-with-a-link">Open
+Claude Desktop with a link</a></li>
+<li>Third-party description of the web link: <a
+href="https://u2l.ai/tools/claude-prompt-link-generator">Claude prompt
+link generator</a></li>
+</ul>
+<h2 id="open-risks">Open risks</h2>
+<ul>
+<li>The web link behaviour may change or differ between browsers.</li>
+<li>A teacher has not yet reviewed the library.</li>
+</ul>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>

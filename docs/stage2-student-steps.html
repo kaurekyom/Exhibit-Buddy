@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stage 2: Student Steps - Exhibit Buddy</title><style>
+:root{--bg:#fff;--fg:#1a1a1a;--line:#c9d1dc;--p:#0b4f9c;--code:#f1f4f8}
+@media (prefers-color-scheme:dark){:root{--bg:#14181d;--fg:#e8ecf1;--line:#3a4452;--p:#8ab8f0;--code:#1d242c}}
+body{margin:0;background:var(--bg);color:var(--fg);font:18px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{background:#0b4f9c;color:#fff;padding:14px 16px}header a{color:#fff;font-weight:700;text-decoration:none}
+main{max-width:46rem;margin:0 auto;padding:16px}
+a{color:var(--p)}h1,h2,h3{line-height:1.25}h2{border-bottom:1px solid var(--line);padding-bottom:4px;margin-top:2em}
+pre{background:var(--code);padding:12px;border-radius:8px;overflow:auto;white-space:pre-wrap;word-break:break-word;font-size:15px}
+code{background:var(--code);padding:1px 4px;border-radius:4px;font-size:.92em}pre code{padding:0;background:none}
+table{border-collapse:collapse;display:block;overflow-x:auto}td,th{border:1px solid var(--line);padding:6px 10px;text-align:left}
+img{max-width:100%}li{margin:.2em 0}input[type=checkbox]{width:1.1em;height:1.1em;margin-right:.4em}
+footer{max-width:46rem;margin:0 auto;padding:16px;font-size:15px;opacity:.8}
+@media print{header,footer{display:none}body{font-size:12pt}pre{white-space:pre-wrap}}
+</style></head><body>
+<header><a href="index.html">Exhibit Buddy: documentation</a> &nbsp; <a href="../index.html" style="font-weight:400">Open the app</a></header>
+<main><h1 id="stage-2-student-steps">Stage 2: Student Steps</h1>
+<p>In Stage 2 the app turns your plan into a full build guide:
+materials, parts, printable true-size templates, numbered steps, safety,
+testing, troubleshooting, viva questions and a glossary. You do every
+step yourself so you learn how it is made.</p>
+<p>Time needed: about 40 minutes.</p>
+<h2 id="part-a-get-the-new-code">Part A: Get the new code</h2>
+<ol type="1">
+<li>In your Exhibit Buddy project chat, paste
+<code>00-master-prompt.md</code> and then
+<code>02-stage-guide-renderer.md</code>. Claude replies with the full
+<code>index.html</code>.</li>
+<li>Copy it, open your <code>exhibit-buddy</code> folder, open
+<code>index.html</code> in Notepad, select all (Ctrl+A), paste, save
+(UTF-8). Refresh the page in your browser (F5).</li>
+</ol>
+<h2 id="part-b-test-the-ready-made-guides">Part B: Test the ready-made
+guides</h2>
+<table>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Do this</th>
+<th>You should see</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Start, type <code>paper parachute</code>, Next, <strong>Yes, this is
+right</strong>, <strong>Build my guide</strong></td>
+<td>A guide with 7 steps and one template sheet with a round canopy</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Same with <code>pinhole camera</code></td>
+<td>A guide with a box net, a window and numbered glue tabs; two steps
+labelled <strong>Ask an adult</strong></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Press <strong>Print the template sheets</strong></td>
+<td>Only the template page prints</td>
+</tr>
+</tbody>
+</table>
+<h2 id="part-c-check-the-print-size-most-important">Part C: Check the
+print size (most important)</h2>
+<ol type="1">
+<li>In the print window choose A4, scale <strong>100% / Actual
+size</strong>, turn off <strong>Fit to page</strong> and
+headers/footers.</li>
+<li>Measure the scale bar with a ruler. It must be exactly <strong>50
+mm</strong>. If not, print again.</li>
+<li>Solid = cut. Dashed = fold. Grey numbered tab = glue to the edge
+with the same number.</li>
+</ol>
+<h2 id="part-d-build-one">Part D: Build one</h2>
+<p>Follow the numbered steps. Tick the testing checklist. Answer the
+viva questions aloud before opening the answers.</p>
+<h2
+id="part-e-make-a-guide-for-your-own-idea-with-claude-two-steps">Part E:
+Make a guide for your own idea with Claude (two steps)</h2>
+<ol type="1">
+<li>Choose an idea that has no ready-made guide (for example
+<code>digestive system</code>) and press <strong>Plan it with Claude and
+build my guide</strong>.</li>
+<li><strong>Step 1:</strong> press the blue <strong>Open Claude</strong>
+button. Press Send in Claude and answer its questions (at most 3).
+Claude ends with one code block.</li>
+<li><strong>Step 2:</strong> press Copy on Claude's code block, paste it
+into the box in the app, press <strong>Build my guide</strong>.</li>
+<li>If a <strong>Problem</strong> list appears, copy it to Claude (same
+chat) and ask for a corrected code block, then paste again.</li>
+<li>Parts bigger than an A4 page (for example a 600 x 800 mm board) are
+shown as loose items to measure and cut yourself. The app tells you
+which.</li>
+</ol>
+<h2 id="part-f-before-you-present">Part F: Before you present</h2>
+<ul>
+<li>Ask a science teacher to read "The science" and "Viva"
+sections.</li>
+<li>Ask an adult to check every <strong>Ask an adult</strong> step.</li>
+<li>The app checks sizes, parts, steps and safety words. It does NOT
+check that the science or the measurements are right.</li>
+</ul>
+<h2 id="if-something-goes-wrong">If something goes wrong</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Scale bar is not 50 mm</td>
+<td>Print at Actual size, not Fit to page</td>
+</tr>
+<tr class="even">
+<td>Paste says "typing mistake"</td>
+<td>Ask Claude to send the complete code block again</td>
+</tr>
+<tr class="odd">
+<td>A big part shows as "loose item"</td>
+<td>Normal. It is bigger than A4, so measure and cut it by hand</td>
+</tr>
+</tbody>
+</table>
+</main><footer>Part of the Exhibit Buddy project. Not reviewed by a teacher unless the verification report says so.</footer></body></html>
