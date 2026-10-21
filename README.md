@@ -2,6 +2,8 @@
 
 A web app that helps a school student plan a science exhibit on any topic. It asks up to 5 short questions, then gives a build guide with true-size printable templates, numbered steps, safety notes, viva questions and a 3D "watch it go together" model. It also has labelled figures (animal cell, carbon atom, solar system) where you tap a part to learn about it. Topics that are not built in are planned with Claude.
 
+*Created by Ekyom Kaur, Class 9, PMS Alwal, Secunderabad.*
+
 **Live app:** https://kaurekyom.github.io/Exhibit-Buddy/
 
 **Documentation (web pages):** https://kaurekyom.github.io/Exhibit-Buddy/docs/ : how it was created, how it works, how to use it, and the verification report.

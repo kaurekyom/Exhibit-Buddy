@@ -32,6 +32,9 @@
   header { background: var(--primary); color: var(--primary-ink); padding: 14px 16px; }
   header h1 { margin: 0; font-size: 1.3rem; }
   header p { margin: 2px 0 0; font-size: 0.95rem; }
+  header .byline { font-size: 0.85rem; opacity: 0.9; }
+  footer.sitefoot { max-width: 46rem; margin: 0 auto; padding: 18px 16px 32px; font-size: 0.9rem; color: #55627a; text-align: center; }
+  footer.sitefoot a { color: var(--primary); }
   main { max-width: 720px; margin: 0 auto; padding: 16px; }
   h2 { font-size: 1.35rem; margin: 0.2em 0 0.5em; }
   h2:focus { outline: 3px solid var(--primary); outline-offset: 4px; }
@@ -127,7 +130,7 @@
 
   @media print {
     @page { size: A4; margin: 0; }
-    header, .noprint { display: none !important; }
+    header, footer.sitefoot, .noprint { display: none !important; }
     main { max-width: none; padding: 0; }
     .guide-section { padding: 0 12mm; }
     .guide-section.templates { padding: 0; margin: 0; }
@@ -142,8 +145,10 @@
 <header>
   <h1>Exhibit Buddy</h1>
   <p>Plan your science exhibit</p>
+  <p class="byline">Created by Ekyom Kaur, Class 9, PMS Alwal, Secunderabad</p>
 </header>
 <main id="app"></main>
+<footer class="sitefoot">Created by Ekyom Kaur, Class 9, PMS Alwal, Secunderabad. <a href="docs/index.html">Help and documentation</a></footer>
 
 <script>
 "use strict";
